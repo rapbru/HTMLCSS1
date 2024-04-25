@@ -1,0 +1,17 @@
+{
+  "name": "cas_fee_24",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/christiansany/CAS_FEE_24.git"
+  },
+  "author": "Christian Sany",
+  "license": "ISC",
+  "dependencies": {
+    "md-to-pdf": "^5.2.4"
+  }
+}
