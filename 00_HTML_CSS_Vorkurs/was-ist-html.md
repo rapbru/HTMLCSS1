@@ -323,11 +323,11 @@ Die aktuelle Browserlandschaft der meistbenutzten Browser sieht so aus:
 > **Note:** Dies ist keine vollständige Liste, sondern beinhaltet nur die meist genutzten Browser
 
 <details>
-  <summary>Browserentwicklung der letzten 14 Jahre</summary>
+  <summary>Browserentwicklung der letzten 15 Jahre</summary>
 
-**2009 - 2023**
-![Browser Usage Statistics - 2009-2023](./assets/browser-stats-2009-2023.png)
-Source: [https://gs.statcounter.com/browser-market-share#monthly-200901-202304](https://gs.statcounter.com/browser-market-share#monthly-200901-202304)
+**2009 - 2024**
+![Browser Usage Statistics - 2009-2024](./assets/browser-stats-2009-current.png)
+Source: [https://gs.statcounter.com/browser-market-share#monthly-200901-202404](https://gs.statcounter.com/browser-market-share#monthly-200901-202404)
 </details>
 
 ### HTML(5(.3)): Aktueller Standard
