@@ -7,6 +7,7 @@
 * [Webfonts](#webfonts)
 * [CSS Variablen](#css-variablen)
 * [Motion, Transitions & Animations](#motion-transitions--animations)
+* [Neue Pseudoklassen](#neue-pseudoklassen)
 
 ## Setup
 
@@ -817,3 +818,137 @@ Zeit: ~ 10 min
 **Hilfreiche Links**
 
 * [New CSS Features In 2022](https://www.smashingmagazine.com/2022/03/new-css-features-2022/)
+
+## Neue Pseudoklassen
+
+### `:has()`
+
+Die `:has()` Pseudoklasse bietet uns erweiterte Möglichkeiten, das übergeordnete Element (Parent) zu selektieren, wenn ein bestimmtes untergeordnetes Element (Child-Element) vorhanden ist. 
+
+**Beispiele**
+
+Ein Beispiel wo wir den Parent selektieren, wenn ein `<p>`-Element vorhanden ist.
+
+```css
+div:has(p) {
+  background: red;
+}
+```
+
+```html
+<!-- selektiert! -->
+<div>
+  <p>Hello World</p>
+</div>
+
+<!-- nicht selektiert -->
+<div></div>
+
+<!-- nicht selektiert -->
+<div>
+  <h1>Hello World</h1>
+</div>
+```
+
+Ein Beispiel wo wir ein Child selektieren, wenn der Parent ein bestimmtes Child besitzt.
+
+```css
+div:has(h1) p {
+  background: red;
+}
+```
+
+```html
+<div>
+  <h1>Hello World</h1>
+  <!-- selektiert! -->
+  <p>Hello World</p>
+</div>
+
+<div>
+  <!-- selektiert! -->
+  <p>Hello World</p>
+  <div>
+    <h1>Hello World</h1>
+  </div>
+</div>
+
+<div>
+  <!-- nicht selektiert -->
+  <p>Hello World</p>
+</div>
+```
+
+**Demo** 🤯
+
+- [:has() erstes Beispiel](https://codesandbox.io/p/sandbox/css-demo-has-pseudoclass-ylqsxv)
+- [:has() zweites Beispiel](https://codesandbox.io/p/sandbox/css-demo-has-pseudoclass-two-xvl77d)
+
+**Hilfreiche Links**
+
+* [Caniuse - :has()](https://caniuse.com/?search=%3Ahas)
+* [MDN - :has()](https://developer.mozilla.org/en-US/docs/Web/CSS/:has)
+
+### `:is()`
+
+Die `:is()` Pseudoklasse erlaubt es, mehrere Selektoren in eine gemeinsame Regel zu gruppieren. Sie ermöglicht es, redundante CSS-Regeln zu vermeiden, indem sie eine Regel auf mehrere Elemente anwendet, die durch Kommas getrennt sind.
+
+**Beispiele**
+
+Einfaches Beispiel:
+
+```css
+:is(.hello, .world) {
+  color: red;
+}
+
+/* Alte Schreibweise */
+.hello, .world {
+  color: red;
+}
+```
+
+```html
+<div class="hello">Ich bin ein div Element</div>
+<p class="world">Ich bin ein p Element</p>
+```
+
+Komplexes Beispiel:
+
+```css
+:is(.container, .text-wrapper) :is(.special, .hello) {
+  color: blue;
+}
+
+/* Alte Schreibweise */
+.container .special,
+.container .hello,
+.text-wrapper .special,
+.text-wrapper .hello {
+  color: blue;
+}
+```
+
+```html
+<div class="container">
+  <div class="box">Box 1</div>
+  <div class="box special">Box 2</div>
+  <div class="box hello">Box 3</div>
+</div>
+
+<div class="text-wrapper">
+  <p class="paragraph">Paragraph 1</p>
+  <p class="paragraph special">Paragraph 2</p>
+  <p class="paragraph">Paragraph 3</p>
+</div>
+```
+
+**Demo** 🤯
+
+- [:is() einfaches Beispiel](https://codesandbox.io/p/sandbox/css-demo-is-pseudoclass-forked-97mcgz)
+- [:is() komplexes Beispiel](https://codesandbox.io/p/sandbox/css-demo-is-pseudoclass-two-forked-94kw2y)
+
+**Hilfreiche Links**
+
+* [Caniuse - :is()](https://caniuse.com/?search=%3Ais)
+* [MDN - :is()](https://developer.mozilla.org/en-US/docs/Web/CSS/:is)
